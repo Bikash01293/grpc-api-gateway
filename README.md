@@ -19,7 +19,7 @@ Step2: In a new terminal send the request as to register:
 
 ![Screenshot 2022-05-14 at 5 07 46 PM](https://user-images.githubusercontent.com/48493235/168424316-cbd28558-3c0d-445b-ab7e-646e2d4f2182.png)
 
-Finally to login and recieve a token send the request as:
+Step3: Hence to login and recieve a token send the request as:
 
   curl --request POST \
   --url http://localhost:3000/auth/login \
@@ -29,5 +29,7 @@ Finally to login and recieve a token send the request as:
  "password": "hey@123"
 }'
 
-![Uploading Screenshot 2022-05-14 at 5.19.34 PM.png…]()
+![Screenshot 2022-05-14 at 5 19 34 PM](https://user-images.githubusercontent.com/48493235/168424496-bf8315de-658d-4da9-8c80-54041d0881c3.png)
+
+
 
