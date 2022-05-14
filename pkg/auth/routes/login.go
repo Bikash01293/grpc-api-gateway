@@ -9,20 +9,20 @@ import (
 )
 
 type LoginRequestBody struct {
-	Email string `json:"email"`
+	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
 func LoginData(ctx *gin.Context, c pb.AuthServiceClient) {
-	b := LoginRequestBody {}
+	b := LoginRequestBody{}
 
 	if err := ctx.BindJSON(&b); err != nil {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
 
-	res, err := c.Login(context.Background(), &pb.RequestLogin{
-		Email: b.Email,
+	res, err := c.Login(context.Background(), &pb.LoginRequest{
+		Email:    b.Email,
 		Password: b.Password,
 	})
 
@@ -30,6 +30,6 @@ func LoginData(ctx *gin.Context, c pb.AuthServiceClient) {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
-
-	ctx.JSON(http.StatusOK, &res)
+	// fmt.Println(string(res.Token))
+	ctx.JSON(http.StatusOK, gin.H{"Data": res})
 }

@@ -17,13 +17,12 @@ type RegisterRequestBody struct {
 
 func RegisterData(ctx *gin.Context, c pb.AuthServiceClient) {
 	b := RegisterRequestBody{}
-
 	if err := ctx.BindJSON(&b); err != nil {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
 
-	res, err := c.Register(context.Background(), &pb.RequestRegister{
+	res, err := c.Register(context.Background(), &pb.RegisterRequest{
 		Email:    b.Email,
 		Password: b.Password,
 	})
@@ -34,4 +33,5 @@ func RegisterData(ctx *gin.Context, c pb.AuthServiceClient) {
 	}
 	fmt.Println(res)
 	ctx.JSON(http.StatusCreated, &res)
+
 }
