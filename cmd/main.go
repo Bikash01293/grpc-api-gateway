@@ -6,6 +6,8 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	"api-gateway/pkg/product"
+	"api-gateway/pkg/order"
 )
 
 func main() {
@@ -16,7 +18,9 @@ func main() {
 	
 	r := gin.Default()
 
-	auth.RegisterRoutes(r, &c)
+	authSvc := *auth.RegisterRoutes(r, &c)
+	product.RegisterRoutes(r, &c, &authSvc)
+	order.RegisterRoutes(r, &c, &authSvc)
 
 	r.Run(c.Port)
 }
