@@ -1,5 +1,5 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/bikasha/Desktop/go-progs/src/ecommerce-microservice/api-gateway'
-protoc pkg/auth/pb/*.proto --go_out=plugins=grpc:.
+protoc pkg/**/pb/*.proto --go_out=plugins=grpc:.
 make: Leaving directory `/Users/bikasha/Desktop/go-progs/src/ecommerce-microservice/api-gateway'
  
