@@ -12,7 +12,7 @@ import (
 
 func FindOne(ctx *gin.Context, c pb.ProductServiceClient) {
 	id, err := strconv.ParseInt(ctx.Param("id"), 10, 32)
-
+	fmt.Println("the requested id is:", id)
 	if err != nil {
 		ctx.AbortWithError(http.StatusBadGateway, err)
 		return
@@ -27,5 +27,5 @@ func FindOne(ctx *gin.Context, c pb.ProductServiceClient) {
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, res)
+	ctx.JSON(http.StatusOK, res)
 }

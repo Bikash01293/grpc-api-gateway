@@ -35,7 +35,10 @@ func RegisterData(ctx *gin.Context, c pb.AuthServiceClient) {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
-	// fmt.Println(res)
-	ctx.JSON(http.StatusCreated, gin.H{"Data": res})
-
+	if res.Status ==  409{
+		ctx.JSON(http.StatusConflict, gin.H{"Data": res})
+	}else {
+		// fmt.Println(res)
+		ctx.JSON(http.StatusCreated, gin.H{"Data": res})
+	}
 }
