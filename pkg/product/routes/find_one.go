@@ -29,3 +29,5 @@ func FindOne(ctx *gin.Context, c pb.ProductServiceClient) {
 
 	ctx.JSON(http.StatusOK, res)
 }
+
+
