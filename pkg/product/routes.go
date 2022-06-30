@@ -22,6 +22,8 @@ func RegisterRoutes(r *gin.Engine, c *config.Config, authSvc *auth.ServiceClient
 	routes.POST("/", svc.CreateProduct)
 	routes.GET("/:id", svc.FindOne)
 	routes.GET("/all", svc.FindAllProduct)
+	routes.PUT("/update/:id", svc.UpdateProduct)
+	routes.DELETE("delete/:id", svc.DeleteProduct)
 	
 }
 
@@ -35,4 +37,12 @@ func(svc *ServiceClient) FindOne(ctx *gin.Context) {
 
 func(svc *ServiceClient) FindAllProduct(ctx *gin.Context) {
 	routes.FindAllProduct(ctx, svc.Client)
+}
+
+func(svc *ServiceClient) UpdateProduct(ctx *gin.Context) {
+	routes.UpdateProduct(ctx, svc.Client)
+}
+
+func(svc *ServiceClient) DeleteProduct(ctx *gin.Context) {
+	routes.DeleteProduct(ctx, svc.Client)
 }

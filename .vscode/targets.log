@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Tue Jun  7 12:45:48 2022
+
+# Make data base, printed on Tue Jun 28 20:17:08 2022
 
 # Variables
 
@@ -38,15 +41,21 @@ _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/k9/kszs3n7j1yv560ph55_v47lc0000gn/T/vscode-ipc-e36fc756-2b0e-4a0f-a03d-e19d501f1459.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/k9/kszs3n7j1yv560ph55_v47lc0000gn/T/vscode-ipc-5e47525b-3cd6-4414-aec2-7e97ef8dcb29.sock
 # environment
 VSCODE_CWD = /Users/bikasha/Desktop/go-progs/src/ecommerce-microservice/api-gateway
 # environment
+GOPROXY = https://proxy.golang.org,direct
+# environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Applications/Postgres.app/Contents/Versions/latest/bin
+# environment
+GOPATH = /Users/bikasha/go
 # environment
 LaunchInstanceID = B855FC69-359B-4B7D-B335-9A4E4098D8FA
 # environment
@@ -66,7 +75,7 @@ PWD = /Users/bikasha/Desktop/go-progs/src/ecommerce-microservice/api-gateway
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+GOMODCACHE = /Users/bikasha/go/pkg/mod
 # environment
 HOME = /Users/bikasha
 # default
@@ -74,7 +83,7 @@ MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /De
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/bikasha/Library/Application Support/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = /Users/bikasha/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LOGNAME = bikasha
 # environment
@@ -98,7 +107,7 @@ USER = bikasha
 # makefile
 .DEFAULT_GOAL := proto
 # environment
-TERM_SESSION_ID = 9DC3CE3C-2F5F-4407-93C8-D7040FF2CE9D
+TERM_SESSION_ID = 2BCB9AC9-987D-47DB-AFC9-CC92D19BD63E
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -112,7 +121,7 @@ TMPDIR = /var/folders/k9/kszs3n7j1yv560ph55_v47lc0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/bikasha/Library/Application Support/Code/1.67.1-main.sock
+VSCODE_IPC_HOOK = /Users/bikasha/Library/Application Support/Code/1.67.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -122,7 +131,7 @@ MFLAGS = -Rrqp
 # environment
 TERM_PROGRAM_VERSION = 444
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.1049108.1049114.EBC0BF38-953F-45CF-98E1-074DD3501DC3
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.1049108.1049114.DA6142BE-080C-4D32-B90D-46AA2171BCD1
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -152,9 +161,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 391
+VSCODE_PID = 68302
 # variable set hash-table stats:
-# Load=71/1024=7%, Rehash=0, Collisions=1/95=1%
+# Load=74/1024=7%, Rehash=0, Collisions=2/98=2%
 
 # Pattern-specific Variable Values
 
@@ -219,6 +228,7 @@ proto:
 #  File has not been updated.
 
 # files hash-table stats:
+ 
 # Load=6/1024=1%, Rehash=0, Collisions=1/18=6%
 # VPATH Search Paths
 
@@ -231,8 +241,6 @@ proto:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Jun  7 12:45:48 2022
+# Finished Make data base on Tue Jun 28 20:17:08 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-

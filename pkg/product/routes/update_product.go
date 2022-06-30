@@ -5,11 +5,12 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
 
-type CreateProductRequestBody struct {
+type UpdateProductRequestBody struct {
 	Title  string `json:"title"`
 	Desc string  `json:"desc"`
 	Img string  `json:"img"`
@@ -20,16 +21,21 @@ type CreateProductRequestBody struct {
 	Stock  int64 `json:"stock"`
 }
 
-func CreateProduct(ctx *gin.Context, c pb.ProductServiceClient) {
-	b := CreateProductRequestBody{}
 
+func UpdateProduct(ctx *gin.Context, c pb.ProductServiceClient) {
+	id, err := strconv.ParseInt(ctx.Param("id"), 10, 32)
+	fmt.Println("the requested id is:", id)
+	if err != nil {
+		ctx.AbortWithError(http.StatusBadGateway, err)
+		return
+	}
+	b := UpdateProductRequestBody{}
 	if err := ctx.BindJSON(&b); err != nil {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
-
-	fmt.Println(b)
-	res, err := c.CreateProduct(context.Background(), &pb.CreateProductRequest{
+	res, err := c.UpdateProduct(context.Background(), &pb.UpdateProductRequest{
+		Id: int64(id),
 		Title:  b.Title,
 		Desc: b.Desc,
 		Img: b.Img,
@@ -39,10 +45,13 @@ func CreateProduct(ctx *gin.Context, c pb.ProductServiceClient) {
 		Price: b.Price,
 		Stock: b.Stock,
 	})
+	fmt.Println("This is the response data", res)
 	if err != nil {
 		ctx.AbortWithError(http.StatusBadGateway, err)
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, res)
+	ctx.JSON(http.StatusOK, res)
 }
+
+
