@@ -19,9 +19,9 @@ func RegisterRoutes(r *gin.Engine, c *config.Config, authSvc *auth.ServiceClient
 
 	routes := r.Group("/product")
 	routes.Use(a.AuthRequired)
-	routes.POST("/", svc.CreateProduct)
+	routes.POST("/create", svc.CreateProduct)
 	routes.GET("/:id", svc.FindOne)
-	routes.GET("/all", svc.FindAllProduct)
+	routes.GET("/", svc.FindAllProduct)
 	routes.PUT("/update/:id", svc.UpdateProduct)
 	routes.DELETE("delete/:id", svc.DeleteProduct)
 	

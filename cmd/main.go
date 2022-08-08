@@ -4,14 +4,11 @@ import (
 	"api-gateway/pkg/auth"
 	"api-gateway/pkg/config"
 	"log"
-
-	"api-gateway/pkg/order"
 	"api-gateway/pkg/product"
-
-	// cors "github.com/gin-contrib/cors"
+	"api-gateway/pkg/cart"
+	"api-gateway/pkg/order"
 	"github.com/gin-gonic/gin"
-	// cors "github.com/rs/cors/wrapper/gin"
-	// "github.com/rs/cors"
+
 )
 
 func main() {
@@ -22,30 +19,13 @@ func main() {
 
 	r := gin.Default()
 
-	// r.Use(cors.New(cors.Config{
-	// 	AllowOrigins:     []string{"*"},
-	// 	AllowMethods:     []string{"GET", "POST"},
-	// 	AllowHeaders:     []string{"Origin"},
-	// 	ExposeHeaders:    []string{"Content-Length"},
-	// 	AllowCredentials: true,
-	// 	AllowOriginFunc: func(origin string) bool {
-	// 		return origin == "https://github.com"
-	// 	},
-	// 	MaxAge: 12 * time.Hour,
-	// }))
-
-	// r.Use(cors.Default())
-	// cors.Default().Handler(r)
-
 	k := CORSMiddleware()
 
 	r.Use(k)
 
-
-
-
 	authSvc := *auth.RegisterRoutes(r, &c)
 	product.RegisterRoutes(r, &c, &authSvc)
+	cart.RegisterRoutes(r, &c, &authSvc)
 	order.RegisterRoutes(r, &c, &authSvc)
 
 	r.Run(c.Port)
